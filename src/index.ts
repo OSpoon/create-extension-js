@@ -1,2 +1,7 @@
-export const one = 1
-export const two = 2
+import { log } from 'node:console'
+
+export function starter() {
+  log('The project is in the planning stage.')
+}
+
+starter()

@@ -6,6 +6,8 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
+> ⚠️ **Warning:** The project is in the planning stage.
+
 Create a new browser extension based on `extension.js`.
 
 ## License
