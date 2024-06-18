@@ -8,7 +8,7 @@
 
 > ⚠️ **Warning:** The project is in the planning stage.
 
-Scaffolding Your First Browser Extension based on **Extension.js**
+Scaffolding Your First Browser Extension based on [**Extension.js**](https://github.com/cezaraugusto/extension.js)
 
 With NPM:
 
