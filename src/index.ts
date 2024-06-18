@@ -12,6 +12,7 @@ import { getProjectName } from './helpers/getProjectName'
 import writeTemplateFiles from './steps/writeTemplateFiles'
 import writePackageJson from './steps/writePackageJson'
 import writeReadmeFile from './steps/writeReadmeFile'
+import writeSampleFiles from './steps/writeSampleFiles'
 
 const argv = minimist<{
   template?: string
@@ -38,13 +39,6 @@ async function init() {
     // user choice associated with prompts
     const { targetDir, overwrite, packageName, framework, variant, sample } = result
 
-    log('targetDir:', targetDir)
-    log('overwrite:', overwrite)
-    log('packageName:', packageName)
-    log('framework:', framework?.name)
-    log('variant:', variant?.name)
-    log('sample:', sample)
-
     // determine template
     const template: string = variant?.name || framework?.name || argTemplate
     log(template)
@@ -60,6 +54,7 @@ async function init() {
     writeReadmeFile(root, template, projectName)
 
     // Add sample as user input
+    writeSampleFiles(root, sample || argSample)
 
     // After the creation is complete, a message is displayed indicating the next operation
     printNextSteps(root)
