@@ -91,7 +91,7 @@ export default async function runInteractiveMode(
               )
               : reset('Select a framework:'),
         initial: 0,
-        choices: FRAMEWORKS.map((framework) => {
+        choices: FRAMEWORKS.filter(f => f.enable).map((framework) => {
           const frameworkColor = framework.color
           return {
             title: frameworkColor(framework.display || framework.name),
@@ -105,7 +105,7 @@ export default async function runInteractiveMode(
         name: 'variant',
         message: reset('Select a variant:'),
         choices: (framework: Framework) => {
-          return framework.variants.map((variant) => {
+          return framework.variants.filter(v => v.enable).map((variant) => {
             const variantColor = variant.color
             return {
               title: variantColor(variant.display || variant.name),
@@ -126,7 +126,7 @@ export default async function runInteractiveMode(
             : reset('Select a sample:')
         },
         choices: (variant: Variant) => {
-          return variant.samples.map((sample) => {
+          return variant.samples.filter(s => s.enable).map((sample) => {
             const sampleColor = sample.color
             return {
               title: sampleColor(sample.display || sample.name),

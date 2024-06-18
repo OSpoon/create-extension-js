@@ -1,64 +1,33 @@
-export default async function writeTemplateFiles() {
-  // const root = path.join(cwd, targetDir)
+import path from 'node:path'
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { RENAME_FILES } from '../helpers/constants'
+import { copy } from '../helpers/copy'
 
-  // if (overwrite === 'yes')
-  //   emptyDir(root)
-  // else if (!fs.existsSync(root))
-  //   fs.mkdirSync(root, { recursive: true })
+export default async function writeTemplateFiles(root: string, template: string, packageName: string | undefined) {
+  const templateDir = path.resolve(
+    fileURLToPath(import.meta.url),
+    '../..',
+    `templates/${template}`,
+  )
 
-  // const template: string = variant?.name || framework?.name || argTemplate
-  // // const sample: string = sample?.name || argSample
-  // log(template)
+  const write = (file: string, content?: string) => {
+    const targetPath = path.join(root, RENAME_FILES[file] ?? file)
+    if (content)
+      fs.writeFileSync(targetPath, content)
+    else
+      copy(path.join(templateDir, file), targetPath)
+  }
 
-  // const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent)
-  // const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
+  const files = fs.readdirSync(templateDir)
+  for (const file of files.filter(f => f !== 'package.json'))
+    write(file)
 
-  // log(`\nScaffolding project in ${root}...`)
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
+  )
 
-  // const templateDir = path.resolve(
-  //   fileURLToPath(import.meta.url),
-  //   '../..',
-  //   `template-${template}`,
-  // )
+  pkg.name = packageName
 
-  // const write = (file: string, content?: string) => {
-  //   const targetPath = path.join(root, renameFiles[file] ?? file)
-  //   if (content)
-  //     fs.writeFileSync(targetPath, content)
-  //   else
-  //     copy(path.join(templateDir, file), targetPath)
-  // }
-
-  // const files = fs.readdirSync(templateDir)
-  // for (const file of files.filter(f => f !== 'package.json'))
-  //   write(file)
-
-  // const pkg = JSON.parse(
-  //   fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
-  // )
-
-  // pkg.name = packageName || getProjectName()
-
-  // write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
-
-  // const cdProjectName = path.relative(cwd, root)
-  // log(`\nDone. Now run:\n`)
-  // if (root !== cwd) {
-  //   log(
-  //     `  cd ${
-  //       cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName
-  //     }`,
-  //   )
-  // }
-  // switch (pkgManager) {
-  //   case 'yarn':
-  //     log('  yarn')
-  //     log('  yarn dev')
-  //     break
-  //   default:
-  //     log(`  ${pkgManager} install`)
-  //     log(`  ${pkgManager} run dev`)
-  //     break
-  // }
-  // log()
+  write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
 }
