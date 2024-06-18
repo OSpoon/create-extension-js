@@ -2,29 +2,6 @@
 
 > This project was bootstrapped using the Extension.js web template.
 
-## Directory Structure:
-
-```
-./[projectName]
-├── manifest.json
-├── newtab
-│   ├── newtab.html
-│   ├── newtab.js
-│   └── styles.css
-├── popup
-│   ├── popup.html
-│   ├── popup.js
-│   └── popup.css
-├── public
-│   ├── icon
-│   │   ├── icon_16.png
-│   │   ├── icon_32.png
-│   │   └── icon_64.png
-│   └── puzzle.png
-├── .gitignore
-├── README.md
-```
-
 ## Scripts Available
 
 In the project directory, you can run:

@@ -130,7 +130,7 @@ export default async function runInteractiveMode(
             const sampleColor = sample.color
             return {
               title: sampleColor(sample.display || sample.name),
-              value: sample.name,
+              value: sample,
             }
           })
         },

@@ -47,11 +47,17 @@ export const FRAMEWORKS: Framework[] = [
         display: 'NewTab',
         enable: true,
         color: blue,
+        devDependencies: {
+          tailwindcss: '^3.4.4',
+        },
       }, {
         name: 'content-tailwind',
         display: 'Content',
         enable: false,
         color: yellow,
+        devDependencies: {
+          tailwindcss: '^3.4.4',
+        },
       }],
     }, {
       name: 'vanilla-ts',

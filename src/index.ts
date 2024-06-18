@@ -41,20 +41,20 @@ async function init() {
 
     // determine template
     const template: string = variant?.name || framework?.name || argTemplate
-    log(template)
 
     const root = path.join(CWD, targetDir)
     // Initializes the project path to prevent the folder from not existing
     initProjectPath(root, overwrite)
 
     const projectName = packageName || getProjectName(targetDir)
+    const devDependencies = sample?.devDependencies
     // Generate the base project from user input
     writeTemplateFiles(root, template)
-    writePackageJson(root, template, projectName)
+    writePackageJson(root, template, projectName, devDependencies)
     writeReadmeFile(root, template, projectName)
 
     // Add sample as user input
-    writeSampleFiles(root, sample || argSample)
+    writeSampleFiles(root, sample?.name || argSample)
 
     // After the creation is complete, a message is displayed indicating the next operation
     printNextSteps(root)

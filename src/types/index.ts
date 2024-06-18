@@ -21,4 +21,5 @@ export interface Sample {
   display: string
   color: ColorFunc
   enable: boolean
+  devDependencies?: Record<string, string>
 }
