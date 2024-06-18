@@ -8,7 +8,62 @@
 
 > ⚠️ **Warning:** The project is in the planning stage.
 
-Create a new browser extension based on `extension.js`.
+Scaffolding Your First Browser Extension based on **Extension.js**
+
+With NPM:
+
+```shell
+$ npm create extension.js
+```
+
+With Yarn:
+
+```shell
+$ yarn create extension.js
+```
+
+With PNPM:
+
+```shell
+$ pnpm create extension.js
+```
+
+Then follow the prompts!
+
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a React + TypeScript project, run:
+
+```shell
+# npm 7+, extra double-dash is needed:
+npm create vite@latest my-react-ts-ext -- --template react-ts
+
+# yarn
+yarn create vite my-react-ts-ext --template react-ts
+
+# pnpm
+pnpm create vite my-react-ts-ext --template react-ts
+```
+
+Currently supported template presets include:
+
+* `vanilla`
+* `vanilla-ts`
+* `vanilla-tailwind`
+* `vanilla-ts-tailwind`
+
+* `react`
+* `react-tailwind`
+* `react-ts`
+* `react-ts-tailwind`
+
+* `vue`
+* `vue-tailwind`
+* `vue-ts`
+* `vue-ts-tailwind`
+
+* `preact`
+* `preact-tailwind`
+* `preact-ts`
+* `preact-ts-tailwind`
 
 ## License
 
