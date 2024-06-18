@@ -33,7 +33,7 @@
     }
   },
   "bin": {
-    "clt": "./bin/cli.mjs"
+    "extension.js": "./bin/cli.mjs"
   },
   "files": [
     "bin",
