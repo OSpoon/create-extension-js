@@ -34,13 +34,13 @@ You can also directly specify the project name and the template you want to use 
 
 ```shell
 # npm 7+, extra double-dash is needed:
-npm create vite@latest my-react-ts-ext -- --template react-ts
+npm create extension.js@latest my-react-ts-ext -- --template react-ts
 
 # yarn
-yarn create vite my-react-ts-ext --template react-ts
+yarn create extension.js my-react-ts-ext --template react-ts
 
 # pnpm
-pnpm create vite my-react-ts-ext --template react-ts
+pnpm create extension.js my-react-ts-ext --template react-ts
 ```
 
 Currently supported template presets include:
