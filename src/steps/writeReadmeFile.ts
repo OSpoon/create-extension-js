@@ -2,7 +2,6 @@ import path from 'node:path'
 import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { RENAME_FILES } from '../helpers/constants'
-import { copy } from '../helpers/copy'
 import { getInstallCommand } from '../helpers/getInstallInfo'
 
 export default async function writeReadmeFile(root: string, template: string, packageName: string) {

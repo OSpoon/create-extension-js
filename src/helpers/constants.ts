@@ -43,12 +43,12 @@ export const FRAMEWORKS: Framework[] = [
       color: yellow,
       enable: true,
       samples: [{
-        name: 'newtab',
+        name: 'newtab-tailwind',
         display: 'NewTab',
         enable: true,
         color: blue,
       }, {
-        name: 'content',
+        name: 'content-tailwind',
         display: 'Content',
         enable: false,
         color: yellow,
@@ -59,12 +59,12 @@ export const FRAMEWORKS: Framework[] = [
       color: green,
       enable: false,
       samples: [{
-        name: 'newtab',
+        name: 'newtab-ts',
         display: 'NewTab',
         color: blue,
         enable: false,
       }, {
-        name: 'content',
+        name: 'content-ts',
         display: 'Content',
         color: yellow,
         enable: false,
@@ -75,12 +75,12 @@ export const FRAMEWORKS: Framework[] = [
       color: lightGreen,
       enable: false,
       samples: [{
-        name: 'newtab',
+        name: 'newtab-ts-tailwind',
         display: 'NewTab',
         color: blue,
         enable: false,
       }, {
-        name: 'content',
+        name: 'content-ts-tailwind',
         display: 'Content',
         color: yellow,
         enable: false,
