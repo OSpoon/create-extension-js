@@ -12,7 +12,6 @@ import { getProjectName } from './helpers/getProjectName'
 import writeTemplateFiles from './steps/writeTemplateFiles'
 import writePackageJson from './steps/writePackageJson'
 import writeReadmeFile from './steps/writeReadmeFile'
-import writeSampleFiles from './steps/writeSampleFiles'
 
 const argv = minimist<{
   template?: string
@@ -26,7 +25,6 @@ const argv = minimist<{
 async function init() {
   const argTargetDir = formatTargetDir(argv._[0])
   const argTemplate = argv.template || argv.t
-  const argSample = argv.sample || argv.s
 
   const help = argv.help
   if (help) {
@@ -35,26 +33,22 @@ async function init() {
   }
 
   try {
-    const result = await runInteractiveMode(argTargetDir, argTemplate, argSample, argv.overwrite)
+    const result = await runInteractiveMode(argTargetDir, argTemplate, argv.overwrite)
     // user choice associated with prompts
-    const { targetDir, overwrite, packageName, framework, variant, sample } = result
+    const { targetDir, overwrite, packageName, uiContext, tailwind } = result
 
     // determine template
-    const template: string = variant?.name || framework?.name || argTemplate
+    const template: string = tailwind ? `${uiContext?.name}-tailwind` : uiContext?.name || argTemplate
 
     const root = path.join(CWD, targetDir)
     // Initializes the project path to prevent the folder from not existing
     initProjectPath(root, overwrite)
 
     const projectName = packageName || getProjectName(targetDir)
-    const devDependencies = sample?.devDependencies
     // Generate the base project from user input
     writeTemplateFiles(root, template)
-    writePackageJson(root, template, projectName, devDependencies)
+    writePackageJson(root, template, projectName)
     writeReadmeFile(root, template, projectName)
-
-    // Add sample as user input
-    writeSampleFiles(root, sample?.name || argSample)
 
     // After the creation is complete, a message is displayed indicating the next operation
     printNextSteps(root)

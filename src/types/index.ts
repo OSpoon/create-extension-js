@@ -5,21 +5,13 @@ export interface Framework {
   display: string
   color: ColorFunc
   enable: boolean
-  variants: Variant []
+  uiContexts: UIContext []
 }
 
-export interface Variant {
+export interface UIContext {
   name: string
   display: string
   color: ColorFunc
   enable: boolean
-  samples: Sample[]
-}
-
-export interface Sample {
-  name: string
-  display: string
-  color: ColorFunc
-  enable: boolean
-  devDependencies?: Record<string, string>
+  tailwind: boolean
 }

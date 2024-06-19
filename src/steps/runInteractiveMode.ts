@@ -8,14 +8,12 @@ import { isEmpty } from '../helpers/isEmpty'
 import { isValidPackageName } from '../helpers/isValidPackageName'
 import { getProjectName } from '../helpers/getProjectName'
 import { toValidPackageName } from '../helpers/toValidPackageName'
-import type { Framework, Variant } from '../types'
-import { isValidSampleName } from '../helpers/isValidSampleName'
+import type { Framework, UIContext } from '../types'
 
-type Answers = prompts.Answers<'projectName' | 'overwrite' | 'packageName' | 'framework' | 'variant' | 'sample' | 'targetDir' >
+type Answers = prompts.Answers<'projectName' | 'overwrite' | 'packageName' | 'framework' | 'uiContext' | 'tailwind' | 'targetDir' >
 export default async function runInteractiveMode(
   argTargetDir: string | undefined,
   argTemplate: string | undefined,
-  argSample: string | undefined,
   overwrite: boolean,
 ) {
   let targetDir = argTargetDir || DEFAULT_TARGET_DIR
@@ -101,39 +99,26 @@ export default async function runInteractiveMode(
       },
       {
         type: (framework: Framework) =>
-          framework && framework.variants ? 'select' : null,
-        name: 'variant',
-        message: reset('Select a variant:'),
+          framework && framework.uiContexts ? 'select' : null,
+        name: 'uiContext',
+        message: reset('Select a UIContext:'),
         choices: (framework: Framework) => {
-          return framework.variants.filter(v => v.enable).map((variant) => {
-            const variantColor = variant.color
+          return framework.uiContexts.filter(v => v.enable).map((ui) => {
+            const variantColor = ui.color
             return {
-              title: variantColor(variant.display || variant.name),
-              value: variant,
+              title: variantColor(ui.display || ui.name),
+              value: ui,
             }
           })
         },
       },
       {
-        type: (variant: Variant) =>
-          variant && isValidSampleName(variant, argSample) ? null : 'select',
-        name: 'sample',
-        message: (variant: Variant) => {
-          return typeof argSample === 'string' && !isValidSampleName(variant, argSample)
-            ? reset(
-                `"${argSample}" isn't a valid sample. Please choose from below: `,
-            )
-            : reset('Select a sample:')
-        },
-        choices: (variant: Variant) => {
-          return variant.samples.filter(s => s.enable).map((sample) => {
-            const sampleColor = sample.color
-            return {
-              title: sampleColor(sample.display || sample.name),
-              value: sample,
-            }
-          })
-        },
+        type: (ui: UIContext) => ui.tailwind ? 'toggle' : null,
+        name: 'tailwind',
+        message: 'Enable TailwindCSS?',
+        initial: true,
+        active: 'yes',
+        inactive: 'no',
       },
     ],
     {

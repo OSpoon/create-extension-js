@@ -1,0 +1,14 @@
+{
+    "name": "popup",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "dev": "extension dev",
+      "start": "extension start",
+      "build": "extension build"
+    },
+    "devDependencies": {
+      "extension": "latest"
+    }
+  }
+  

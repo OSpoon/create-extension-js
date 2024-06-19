@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { RENAME_FILES } from '../helpers/constants'
 
-export default async function writePackageJson(root: string, template: string, packageName: string | undefined, devDependencies?: Record<string, string>) {
+export default async function writePackageJson(root: string, template: string, packageName: string | undefined) {
   const templateDir = path.resolve(
     fileURLToPath(import.meta.url),
     '../..',
@@ -21,14 +21,6 @@ export default async function writePackageJson(root: string, template: string, p
   )
 
   pkg.name = packageName
-
-  // Merge devDependencies in sample
-  if (devDependencies) {
-    pkg.devDependencies = {
-      ...pkg.devDependencies,
-      ...devDependencies,
-    }
-  }
 
   write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
 }
