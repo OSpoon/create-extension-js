@@ -1,15 +1,17 @@
 {
-    "name": "vue-content-tailwind",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-      "dev": "extension dev",
-      "start": "extension start",
-      "build": "extension build"
-    },
-    "devDependencies": {
-      "extension": "latest",
-      "tailwindcss": "^3.4.1"
-    }
-  }
-  
+  "devDependencies": {
+    "vue": "^3.4.27",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.3.3",
+    "extension": "latest"
+  },
+  "scripts": {
+    "dev": "extension dev",
+    "start": "extension start",
+    "build": "extension build"
+  },
+  "dependencies": {},
+  "name": "vue-content-tailwind",
+  "private": true,
+  "version": "0.0.0"
+}

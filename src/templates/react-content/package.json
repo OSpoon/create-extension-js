@@ -1,14 +1,20 @@
 {
-    "name": "react-content",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-      "dev": "extension dev",
-      "start": "extension start",
-      "build": "extension build"
-    },
-    "devDependencies": {
-      "extension": "latest"
-    }
-  }
-  
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.3.3",
+    "extension": "latest"
+  },
+  "scripts": {
+    "dev": "extension dev",
+    "start": "extension start",
+    "build": "extension build"
+  },
+  "dependencies": {},
+  "name": "react-content",
+  "private": true,
+  "version": "0.0.0"
+}

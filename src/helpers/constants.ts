@@ -34,7 +34,7 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Popup',
       tailwind: false,
       color: yellow,
-      enable: true,
+      enable: false,
     }, {
       name: 'newtab',
       display: 'Newtab',
@@ -46,13 +46,13 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Devtools',
       tailwind: false,
       color: lightGreen,
-      enable: true,
+      enable: false,
     }, {
       name: 'sidebar',
       display: 'Sidebar',
       tailwind: false,
       color: cyan,
-      enable: true,
+      enable: false,
     }, {
       name: 'content',
       display: 'Content Scripts',
@@ -71,11 +71,11 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Popup',
       tailwind: true,
       color: blue,
-      enable: true,
+      enable: false,
     }, {
       name: 'react-newtab',
       display: 'Newtab',
-      tailwind: true,
+      tailwind: false,
       color: yellow,
       enable: true,
     }, {
@@ -83,13 +83,13 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Devtools',
       tailwind: true,
       color: green,
-      enable: true,
+      enable: false,
     }, {
       name: 'react-sidebar',
       display: 'Sidebar',
       tailwind: true,
       color: lightGreen,
-      enable: true,
+      enable: false,
     }, {
       name: 'react-content',
       display: 'Content Scripts',
@@ -108,11 +108,11 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Popup',
       tailwind: true,
       color: blue,
-      enable: true,
+      enable: false,
     }, {
       name: 'vue-newtab',
       display: 'Newtab',
-      tailwind: true,
+      tailwind: false,
       color: yellow,
       enable: true,
     }, {
@@ -120,13 +120,13 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Devtools',
       tailwind: true,
       color: green,
-      enable: true,
+      enable: false,
     }, {
       name: 'vue-sidebar',
       display: 'Sidebar',
       tailwind: true,
       color: lightGreen,
-      enable: true,
+      enable: false,
     }, {
       name: 'vue-content',
       display: 'Content Scripts',
@@ -145,11 +145,11 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Popup',
       tailwind: true,
       color: blue,
-      enable: true,
+      enable: false,
     }, {
       name: 'preact-newtab',
       display: 'Newtab',
-      tailwind: true,
+      tailwind: false,
       color: yellow,
       enable: true,
     }, {
@@ -157,13 +157,13 @@ export const FRAMEWORKS: Framework[] = [
       display: 'Devtools',
       tailwind: true,
       color: green,
-      enable: true,
+      enable: false,
     }, {
       name: 'preact-sidebar',
       display: 'Sidebar',
       tailwind: true,
       color: lightGreen,
-      enable: true,
+      enable: false,
     }, {
       name: 'preact-content',
       display: 'Content Scripts',

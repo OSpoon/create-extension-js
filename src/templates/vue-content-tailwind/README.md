@@ -1,6 +1,6 @@
 # [projectName]
 
-> This project was bootstrapped using the Extension.js web template.
+> This project was bootstrapped using the Extension Vue-TypeScript template.
 
 ## Scripts Available
 
