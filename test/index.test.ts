@@ -1,43 +1,11 @@
 import { join } from 'node:path'
 import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { blue, yellow } from 'kolorist'
-import { isValidSampleName } from '../src/helpers/isValidSampleName'
-import type { Variant } from '../src/types'
 import { getProjectName } from '../src/helpers/getProjectName'
-import { isEmpty } from '../src/helpers/isEmpty'
-import { CWD } from '../src/helpers/constants'
+import { CWD, FRAMEWORKS } from '../src/helpers/constants'
+import { getTemplateName, hasTailwind, uiContexts } from '../src/helpers/getTemplateName'
 
 describe('helpers', () => {
-  const variant: Variant = {
-    name: 'vue-ts',
-    display: 'Vue 3 + TypeScript',
-    color: yellow,
-    samples: [{
-      name: 'newtab',
-      display: 'New Tab',
-      color: yellow,
-    }, {
-      name: 'content',
-      display: 'Content',
-      color: blue,
-    }],
-  }
-  it('enter an existing sample name:', () => {
-    const result = isValidSampleName(variant, 'newtab')
-    expect(result).toMatchInlineSnapshot(`true`)
-  })
-
-  it('enter a non-existent sample name:', () => {
-    const result = isValidSampleName(variant, 'side_panel')
-    expect(result).toMatchInlineSnapshot(`false`)
-  })
-
-  it('the sample name is not entered:', () => {
-    const result = isValidSampleName(variant, undefined)
-    expect(result).toMatchInlineSnapshot(`false`)
-  })
-
   it('the current directory is the project name:', () => {
     const result = getProjectName('.')
     expect(result).toMatchInlineSnapshot(`"create-extension.js"`)
@@ -58,8 +26,48 @@ describe('helpers', () => {
     expect(result).toMatchInlineSnapshot(`true`)
   })
 
-  it('the folder is empty:', () => {
-    const result = isEmpty(join(CWD, 'my-extension-project'))
-    expect(result).toMatchInlineSnapshot(`false`)
+  it('frameworks', () => {
+    const result = FRAMEWORKS.map(f => f.name)
+    expect(result).toMatchInlineSnapshot(`
+      [
+        "init",
+        "react",
+        "vue",
+        "preact",
+      ]
+    `)
+  })
+
+  it('uiContexts', () => {
+    const result = uiContexts('react')
+    expect(result).toMatchInlineSnapshot(`
+      [
+        "react-popup",
+        "react-newtab",
+        "react-devtools",
+        "react-sidebar",
+        "react-content",
+      ]
+    `)
+  })
+
+  it('hasTailwind', () => {
+    const result = hasTailwind('react', 'content')
+    expect(result).toMatchInlineSnapshot(`true`)
+  })
+
+  it('getTemplateName 1', () => {
+    const result = getTemplateName('vue-content-tailwind')
+    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
+  })
+
+  it('getTemplateName 2', () => {
+    const result = getTemplateName('vue,content,tailwind')
+    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
+  })
+
+  it('getTemplateName 3', () => {
+    const result = getTemplateName('tailwind,content,vue')
+    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
   })
 })

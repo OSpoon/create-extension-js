@@ -12,6 +12,7 @@ import { getProjectName } from './helpers/getProjectName'
 import writeTemplateFiles from './steps/writeTemplateFiles'
 import writePackageJson from './steps/writePackageJson'
 import writeReadmeFile from './steps/writeReadmeFile'
+import { getTemplateName } from './helpers/getTemplateName'
 
 const argv = minimist<{
   template?: string
@@ -24,7 +25,7 @@ const argv = minimist<{
 
 async function init() {
   const argTargetDir = formatTargetDir(argv._[0])
-  const argTemplate = argv.template || argv.t
+  const argTemplate = getTemplateName(argv.template || argv.t)
 
   const help = argv.help
   if (help) {
