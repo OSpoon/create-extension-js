@@ -45,25 +45,7 @@ pnpm create extension.js my-react-ts-ext --template react-ts
 
 Currently supported template presets include:
 
-* `vanilla`
-* `vanilla-ts`
-* `vanilla-tailwind`
-* `vanilla-ts-tailwind`
-
-* `react`
-* `react-tailwind`
-* `react-ts`
-* `react-ts-tailwind`
-
-* `vue`
-* `vue-tailwind`
-* `vue-ts`
-* `vue-ts-tailwind`
-
-* `preact`
-* `preact-tailwind`
-* `preact-ts`
-* `preact-ts-tailwind`
+[Discuss how to support template composition?](https://github.com/extension-js/extension.js/discussions/93)
 
 ## License
 

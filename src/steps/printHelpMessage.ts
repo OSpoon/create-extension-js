@@ -1,8 +1,5 @@
 import { log } from 'node:console'
 import {
-  cyan,
-  green,
-  magenta,
   yellow,
 } from 'kolorist'
 
@@ -17,15 +14,7 @@ Options:
   -t, --template NAME        use a specific template
 
 Available templates:
-// ${yellow ('vanilla          vanilla-tailwind')}
-// ${yellow ('vanilla-ts       vanilla-ts-tailwind')}
-// ${green ('vue              vue-tailwind')}
-// ${green ('vue-ts           vue-ts-tailwind')}
-// ${cyan ('react            react-tailwind')}
-// ${cyan ('react-ts         react-ts-tailwind')}
-// ${magenta ('preact           preact-tailwind')}
-// ${magenta ('preact-ts        preact-ts-tailwind')}
-`
+${yellow ('https://github.com/extension-js/extension.js/discussions/93')}`
 
   log(helpMessage)
 }
