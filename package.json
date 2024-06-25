@@ -1,7 +1,7 @@
 {
   "name": "create-extension-js",
   "type": "module",
-  "version": "0.0.1-beta.8",
+  "version": "0.0.1-beta.9",
   "packageManager": "pnpm@9.0.2",
   "description": "Create a new browser extension based on `extension-js`.",
   "author": "OSpoon <zxin088@gmail.com>",
@@ -44,6 +44,7 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",

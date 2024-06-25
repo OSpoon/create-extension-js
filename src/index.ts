@@ -10,16 +10,14 @@ import initProjectPath from './steps/initProjectPath'
 import { CWD } from './helpers/constants'
 import printNextSteps from './steps/printNextSteps'
 import { getProjectName } from './helpers/getProjectName'
-import writeTemplateFiles from './steps/writeTemplateFiles'
-import writePackageJson from './steps/writePackageJson'
-import writeReadmeFile from './steps/writeReadmeFile'
 import { getTemplateName } from './helpers/getTemplateName'
+import buildTemplate from './steps/buildTemplate'
 
 export function getTemplateDir(template: string) {
   return path.resolve(
     fileURLToPath(import.meta.url),
     '../..',
-  `templates/${template}`,
+    `templates/${template}`,
   )
 }
 
@@ -56,9 +54,7 @@ async function init() {
 
     const projectName = packageName || getProjectName(targetDir)
     // Generate the base project from user input
-    writeTemplateFiles(root, template)
-    writePackageJson(root, template, projectName)
-    writeReadmeFile(root, template, projectName)
+    buildTemplate(root, template, projectName)
 
     // After the creation is complete, a message is displayed indicating the next operation
     printNextSteps(root)
