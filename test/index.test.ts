@@ -8,66 +8,66 @@ import { getTemplateName, hasTailwind, uiContexts } from '../src/helpers/getTemp
 describe('helpers', () => {
   it('the current directory is the project name:', () => {
     const result = getProjectName('.')
-    expect(result).toMatchInlineSnapshot(`"create-extension.js"`)
+    expect(result).toEqual('create-extension-js')
   })
 
   it('enter project name:', () => {
     const result = getProjectName('vue-ts-ext')
-    expect(result).toMatchInlineSnapshot(`"vue-ts-ext"`)
+    expect(result).toEqual('vue-ts-ext')
   })
 
   it('enter a relative path name:', () => {
     const result = getProjectName('./vue-ts-ext')
-    expect(result).toMatchInlineSnapshot(`"./vue-ts-ext"`)
+    expect(result).toEqual('./vue-ts-ext')
   })
 
   it('whether the folder exists', () => {
     const result = existsSync(join(CWD, 'my-extension-project'))
-    expect(result).toMatchInlineSnapshot(`true`)
+    expect(result).toEqual(false)
   })
 
   it('frameworks', () => {
     const result = FRAMEWORKS.map(f => f.name)
-    expect(result).toMatchInlineSnapshot(`
+    expect(result).toEqual(
       [
-        "init",
-        "react",
-        "vue",
-        "preact",
-      ]
-    `)
+        'init',
+        'react',
+        'vue',
+        'preact',
+      ],
+    )
   })
 
   it('uiContexts', () => {
     const result = uiContexts('react')
-    expect(result).toMatchInlineSnapshot(`
+    expect(result).toEqual(
       [
-        "react-popup",
-        "react-newtab",
-        "react-devtools",
-        "react-sidebar",
-        "react-content",
-      ]
-    `)
+        'react-popup',
+        'react-newtab',
+        'react-devtools',
+        'react-sidebar',
+        'react-content',
+      ],
+    )
   })
 
   it('hasTailwind', () => {
     const result = hasTailwind('react', 'content')
-    expect(result).toMatchInlineSnapshot(`true`)
+    expect(result).toEqual(true)
   })
 
   it('getTemplateName 1', () => {
     const result = getTemplateName('vue-content-tailwind')
-    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
+    expect(result).toEqual('vue-content-tailwind')
   })
 
   it('getTemplateName 2', () => {
     const result = getTemplateName('vue,content,tailwind')
-    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
+    expect(result).toEqual('vue-content-tailwind')
   })
 
   it('getTemplateName 3', () => {
     const result = getTemplateName('tailwind,content,vue')
-    expect(result).toMatchInlineSnapshot(`"vue-content-tailwind"`)
+    expect(result).toEqual('vue-content-tailwind')
   })
 })
