@@ -19,7 +19,7 @@ export function getTemplateDir(template: string) {
   return path.resolve(
     fileURLToPath(import.meta.url),
     '../..',
-  `templates/${template}`,
+    `templates/${template}`,
   )
 }
 
