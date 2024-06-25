@@ -30,17 +30,23 @@ $ pnpm create extension.js
 
 Then follow the prompts!
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a React + TypeScript project, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a React + NewTab + Tailwind project, run:
 
 ```shell
 # npm 7+, extra double-dash is needed:
-npm create extension.js@latest my-react-ts-ext -- --template react-ts
+npm create extension.js@latest my-react-ext -- --template react-newtab-tailwind
+
+npm create extension.js@latest my-react-ext -- --template react,newtab,tailwind
 
 # yarn
-yarn create extension.js my-react-ts-ext --template react-ts
+yarn create extension.js my-react-ext --template react-newtab-tailwind
+
+yarn create extension.js my-react-ext --template react,newtab,tailwind
 
 # pnpm
-pnpm create extension.js my-react-ts-ext --template react-ts
+pnpm create extension.js my-react-ext --template react-newtab-tailwind
+
+pnpm create extension.js my-react-ext --template react,newtab,tailwind
 ```
 
 Currently supported template presets include:
