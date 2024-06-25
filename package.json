@@ -38,7 +38,7 @@
   "files": [
     "bin",
     "dist",
-    "templates/*"
+    "templates"
   ],
   "scripts": {
     "build": "unbuild",
