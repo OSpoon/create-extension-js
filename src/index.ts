@@ -1,6 +1,7 @@
 import process from 'node:process'
 import { error, log } from 'node:console'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import minimist from 'minimist'
 import printHelpMessage from './steps/printHelpMessage'
 import runInteractiveMode from './steps/runInteractiveMode'
@@ -13,6 +14,14 @@ import writeTemplateFiles from './steps/writeTemplateFiles'
 import writePackageJson from './steps/writePackageJson'
 import writeReadmeFile from './steps/writeReadmeFile'
 import { getTemplateName } from './helpers/getTemplateName'
+
+export function getTemplateDir(template: string) {
+  return path.resolve(
+    fileURLToPath(import.meta.url),
+    '../..',
+  `templates/${template}`,
+  )
+}
 
 const argv = minimist<{
   template?: string

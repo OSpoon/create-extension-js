@@ -1,9 +1,10 @@
 import path from 'node:path'
 import fs from 'node:fs'
-import { CWD, RENAME_FILES } from '../helpers/constants'
+import { RENAME_FILES } from '../helpers/constants'
+import { getTemplateDir } from '..'
 
 export default async function writePackageJson(root: string, template: string, packageName: string | undefined) {
-  const templateDir = path.resolve(CWD, `templates/${template}`)
+  const templateDir = getTemplateDir(template)
 
   const write = (file: string, content: string) => {
     const targetPath = path.join(root, RENAME_FILES[file] ?? file)
