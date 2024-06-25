@@ -8,7 +8,50 @@
 
 > ⚠️ **Warning:** The project is in the planning stage.
 
-Create a new browser extension based on `extension.js`.
+Scaffolding Your First Browser Extension based on [**Extension.js**](https://github.com/cezaraugusto/extension.js)
+
+With NPM:
+
+```shell
+$ npm create extension.js
+```
+
+With Yarn:
+
+```shell
+$ yarn create extension.js
+```
+
+With PNPM:
+
+```shell
+$ pnpm create extension.js
+```
+
+Then follow the prompts!
+
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a React + NewTab + Tailwind project, run:
+
+```shell
+# npm 7+, extra double-dash is needed:
+npm create extension.js@latest my-react-ext -- --template react-newtab-tailwind
+
+npm create extension.js@latest my-react-ext -- --template react,newtab,tailwind
+
+# yarn
+yarn create extension.js my-react-ext --template react-newtab-tailwind
+
+yarn create extension.js my-react-ext --template react,newtab,tailwind
+
+# pnpm
+pnpm create extension.js my-react-ext --template react-newtab-tailwind
+
+pnpm create extension.js my-react-ext --template react,newtab,tailwind
+```
+
+Currently supported template presets include:
+
+[Discuss how to support template composition?](https://github.com/extension-js/extension.js/discussions/93)
 
 ## License
 
