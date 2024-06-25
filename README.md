@@ -51,7 +51,7 @@ pnpm create extension-js@latest my-react-ext --template react,newtab,tailwind
 
 Currently supported template presets include:
 
-[Discuss how to support template composition?](https://github.com/extension-js/extension-js/discussions/93)
+[Discuss how to support template composition?](https://github.com/extension-js/extension.js/discussions/93)
 
 ## License
 
