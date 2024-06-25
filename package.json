@@ -1,17 +1,17 @@
 {
-  "name": "create-extension.js",
+  "name": "create-extension-js",
   "type": "module",
   "version": "0.0.1-beta.5",
   "packageManager": "pnpm@9.0.2",
-  "description": "Create a new browser extension based on `extension.js`.",
+  "description": "Create a new browser extension based on `extension-js`.",
   "author": "OSpoon <zxin088@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ospoon/create-extension.js#readme",
+  "homepage": "https://github.com/ospoon/create-extension-js#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ospoon/create-extension.js.git"
+    "url": "git+https://github.com/ospoon/create-extension-js.git"
   },
-  "bugs": "https://github.com/ospoon/create-extension.js/issues",
+  "bugs": "https://github.com/ospoon/create-extension-js/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -33,7 +33,7 @@
     }
   },
   "bin": {
-    "extensionjs": "./bin/cli.mjs"
+    "extension-js": "./bin/cli.mjs"
   },
   "files": [
     "bin",
