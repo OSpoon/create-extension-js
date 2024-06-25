@@ -19,6 +19,12 @@ export function hasTailwind(framework: string, uiContext: string) {
   return ui ? ui.tailwind : false
 }
 
+export function splitArgs(args: string) {
+  if (args.includes(','))
+    return args.split(',')
+  return args.split('-')
+}
+
 export function getTemplateName(args: string) {
   const categories: Categories = {
     framework: FRAMEWORKS.map(f => f.name),
@@ -26,18 +32,22 @@ export function getTemplateName(args: string) {
     helperLibrary: ['tailwind'],
   }
 
-  const [framework] = args.split(',').filter(arg => categories.framework.includes(arg))
+  // Split template name
+  const list = splitArgs(args || '')
+
+  const [framework] = list.filter(arg => categories.framework.includes(arg))
   if (!framework)
-    return args
+    return undefined
 
   categories.uiContext = uiContexts(framework)
 
-  const [uiContext] = args.split(',').filter(arg => categories.uiContext.includes(`${framework}-${arg}`))
-  const helperLibrary = args.split(',').includes('tailwind') && hasTailwind(framework, uiContext)
+  const [uiContext] = list.filter(arg => categories.uiContext.includes(`${framework}-${arg}`))
+  const helperLibrary = list.includes('tailwind') && hasTailwind(framework, uiContext)
 
-  let template = `${framework}`
+  // Build template name
+  let template
   if (uiContext)
-    template += `-${uiContext}`
+    template = `${framework}-${uiContext}`
   if (helperLibrary)
     template += `-tailwind`
 
