@@ -1,15 +1,10 @@
 import path from 'node:path'
 import fs from 'node:fs'
-import { fileURLToPath } from 'node:url'
-import { RENAME_FILES } from '../helpers/constants'
+import { CWD, RENAME_FILES } from '../helpers/constants'
 import { getInstallCommand } from '../helpers/getInstallInfo'
 
 export default async function writeReadmeFile(root: string, template: string, packageName: string) {
-  const templateDir = path.resolve(
-    fileURLToPath(import.meta.url),
-    '../..',
-    `templates/${template}`,
-  )
+  const templateDir = path.resolve(CWD, `templates/${template}`)
 
   const write = (file: string, content: string) => {
     const targetPath = path.join(root, RENAME_FILES[file] ?? file)

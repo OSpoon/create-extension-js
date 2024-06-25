@@ -113,7 +113,7 @@ export default async function runInteractiveMode(
         },
       },
       {
-        type: (ui: UIContext) => ui.tailwind ? 'toggle' : null,
+        type: (ui: UIContext) => ui && ui.tailwind ? 'toggle' : null,
         name: 'tailwind',
         message: 'Enable TailwindCSS?',
         initial: true,
