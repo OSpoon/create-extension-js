@@ -11,8 +11,10 @@ export const test = base.extend<{
   // eslint-disable-next-line no-empty-pattern
   context: async ({ }, use) => {
     const context = await chromium.launchPersistentContext('', {
-      headless: true,
+      headless: false,
       args: [
+        // headless=new mode is not officially supported by Playwright and might result in unexpected behavior.
+        `--headless=new`,
         `--disable-extensions-except=${extension}`,
         `--load-extension=${extension}`,
       ],
