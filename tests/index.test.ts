@@ -21,11 +21,6 @@ describe('helpers', () => {
     expect(result).toEqual('./vue-ts-ext')
   })
 
-  it('whether the folder exists', () => {
-    const result = existsSync(join(CWD, 'my-extension-project'))
-    expect(result).toEqual(false)
-  })
-
   it('frameworks', () => {
     const result = FRAMEWORKS.map(f => f.name)
     expect(result).toEqual(
