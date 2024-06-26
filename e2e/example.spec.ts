@@ -1,4 +1,11 @@
-import { expect, test } from '@playwright/test'
+// import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
+
+test('load extension', async ({ page }) => {
+  await page.goto('https://extension.js.org/')
+
+  await expect(page.getByRole('heading', { name: ' Change the background-color ⬇' })).toBeVisible()
+})
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/')
