@@ -79,7 +79,7 @@ export const FRAMEWORKS: Framework[] = [
       name: 'react-newtab-tailwind',
       display: 'Newtab + Tailwind',
       color: yellow,
-      enable: false,
+      enable: true,
     }, {
       name: 'react-devtools',
       display: 'Devtools',
@@ -104,7 +104,7 @@ export const FRAMEWORKS: Framework[] = [
       name: 'react-content',
       display: 'Content Scripts',
       color: cyan,
-      enable: true,
+      enable: false,
     }, {
       name: 'react-content-tailwind',
       display: 'Content Scripts + Tailwind',

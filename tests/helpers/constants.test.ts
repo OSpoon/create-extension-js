@@ -13,7 +13,7 @@ describe('helpers', () => {
         'newtab',
         'content',
         'react-newtab',
-        'react-content',
+        'react-newtab-tailwind',
         'react-content-tailwind',
         'vue-newtab',
         'vue-content-tailwind',
