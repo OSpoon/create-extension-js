@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import NewTabApp from './NewTabApp'
-import './base.css'
+import NewtabApp from './NewTabApp'
+import './styles.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
   <React.StrictMode>
-    <NewTabApp />
+    <NewtabApp />
   </React.StrictMode>
 )
