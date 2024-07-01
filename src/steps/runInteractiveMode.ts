@@ -101,7 +101,7 @@ export default async function runInteractiveMode(
         type: (framework: Framework) =>
           framework && framework.uiContexts ? 'select' : null,
         name: 'uiContext',
-        message: reset('Select a UIContext:'),
+        message: reset('Select a uiContext:'),
         choices: (framework: Framework) => {
           return framework.uiContexts.filter(v => v.enable).map((ui) => {
             const variantColor = ui.color
