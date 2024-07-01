@@ -16,18 +16,6 @@ With NPM:
 $ npm create extension-js@latest
 ```
 
-With Yarn:
-
-```shell
-$ yarn create extension-js@latest
-```
-
-With PNPM:
-
-```shell
-$ pnpm create extension-js@latest
-```
-
 Then follow the prompts!
 
 You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a React + NewTab + Tailwind project, run:
