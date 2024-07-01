@@ -1,44 +1,37 @@
-import { FRAMEWORKS } from './constants'
+import { TEMPLATES } from './constants'
 
-interface Categories {
-  framework: string[]
-  uiContext: string[]
+/**
+ * Generates all permutations of a given array of strings
+ */
+function getPermutations(args: string[]) {
+  const results: string[] = []
+
+  function generate(current: string[], remaining: string[]) {
+    if (remaining.length === 0) {
+      results.push(current.join('-'))
+      return
+    }
+
+    for (let i = 0; i < remaining.length; i++) {
+      const nextCurrent = [...current, remaining[i]]
+      const nextRemaining = remaining.filter((_, index) => index !== i)
+      generate(nextCurrent, nextRemaining)
+    }
+  }
+
+  generate([], args)
+  return results
 }
 
-export function uiContexts(framework: string) {
-  const fw = FRAMEWORKS.find(f => f.name === framework)
-  return fw ? fw.uiContexts.map(ui => ui.name) : []
-}
-
-export function splitArgs(args: string) {
+function arrayify(args: string) {
   if (args.includes(','))
     return args.split(',')
   return args.split('-')
 }
 
 export function getTemplateName(args: string) {
-  const categories: Categories = {
-    framework: FRAMEWORKS.map(f => f.name),
-    uiContext: [],
-  }
+  const list = getPermutations(arrayify(args || ''))
+  const [framework] = list.filter(arg => TEMPLATES.includes(arg))
 
-  // Split template name
-  const list = splitArgs(args || '')
-
-  const [framework] = list.filter(arg => categories.framework.includes(arg))
-  if (!framework)
-    return undefined
-
-  categories.uiContext = uiContexts(framework)
-
-  const [uiContext] = list.filter(arg => categories.uiContext.includes(`${framework}-${arg}`))
-  const hsaTailwind = list.includes('tailwind')
-
-  // Build template name
-  let template
-  if (uiContext)
-    template = `${framework}-${uiContext}`
-  if (template && hsaTailwind)
-    template += `-tailwind`
-  return template
+  return framework
 }

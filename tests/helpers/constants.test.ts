@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 import { TEMPLATES } from '../../src/helpers/constants'
 
 describe('helpers', () => {
-  it('number of enabled templates: ', () => {
+  it('should return total number of enabled templates: ', () => {
     expect(TEMPLATES.length).toEqual(36)
   })
 
-  it('names of all enabled templates: ', () => {
+  it('should return names of all enabled templates: ', () => {
     expect(TEMPLATES).toEqual(
       [
         'init',
