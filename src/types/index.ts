@@ -13,5 +13,4 @@ export interface UIContext {
   display: string
   color: ColorFunc
   enable: boolean
-  tailwind: boolean
 }

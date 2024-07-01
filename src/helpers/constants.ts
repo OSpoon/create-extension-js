@@ -26,37 +26,31 @@ export const FRAMEWORKS: Framework[] = [
     uiContexts: [{
       name: 'init',
       display: 'None (Init)',
-      tailwind: false,
       color: blue,
       enable: true,
     }, {
       name: 'popup',
       display: 'Popup',
-      tailwind: false,
       color: yellow,
       enable: true,
     }, {
       name: 'newtab',
       display: 'Newtab',
-      tailwind: false,
       color: green,
       enable: true,
     }, {
       name: 'devtools',
       display: 'Devtools',
-      tailwind: false,
       color: lightGreen,
       enable: true,
     }, {
       name: 'sidebar',
       display: 'Sidebar',
-      tailwind: false,
       color: cyan,
       enable: true,
     }, {
       name: 'content',
       display: 'Content Scripts',
-      tailwind: false,
       color: gray,
       enable: true,
     }],
@@ -69,31 +63,51 @@ export const FRAMEWORKS: Framework[] = [
     uiContexts: [{
       name: 'react-popup',
       display: 'Popup',
-      tailwind: true,
+      color: blue,
+      enable: true,
+    }, {
+      name: 'react-popup-tailwind',
+      display: 'Popup + Tailwind',
       color: blue,
       enable: true,
     }, {
       name: 'react-newtab',
       display: 'Newtab',
-      tailwind: true,
+      color: yellow,
+      enable: true,
+    }, {
+      name: 'react-newtab-tailwind',
+      display: 'Newtab + Tailwind',
       color: yellow,
       enable: true,
     }, {
       name: 'react-devtools',
       display: 'Devtools',
-      tailwind: true,
+      color: green,
+      enable: true,
+    }, {
+      name: 'react-devtools-tailwind',
+      display: 'Devtools + Tailwind',
       color: green,
       enable: true,
     }, {
       name: 'react-sidebar',
       display: 'Sidebar',
-      tailwind: true,
+      color: lightGreen,
+      enable: true,
+    }, {
+      name: 'react-sidebar-tailwind',
+      display: 'Sidebar + Tailwind',
       color: lightGreen,
       enable: true,
     }, {
       name: 'react-content',
       display: 'Content Scripts',
-      tailwind: true,
+      color: cyan,
+      enable: true,
+    }, {
+      name: 'react-content-tailwind',
+      display: 'Content Scripts + Tailwind',
       color: cyan,
       enable: true,
     }],
@@ -106,31 +120,51 @@ export const FRAMEWORKS: Framework[] = [
     uiContexts: [{
       name: 'vue-popup',
       display: 'Popup',
-      tailwind: true,
+      color: blue,
+      enable: true,
+    }, {
+      name: 'vue-popup-tailwind',
+      display: 'Popup + Tailwind',
       color: blue,
       enable: true,
     }, {
       name: 'vue-newtab',
       display: 'Newtab',
-      tailwind: true,
+      color: yellow,
+      enable: true,
+    }, {
+      name: 'vue-newtab-tailwind',
+      display: 'Newtab + Tailwind',
       color: yellow,
       enable: true,
     }, {
       name: 'vue-devtools',
       display: 'Devtools',
-      tailwind: true,
+      color: green,
+      enable: true,
+    }, {
+      name: 'vue-devtools-tailwind',
+      display: 'Devtools + Tailwind',
       color: green,
       enable: true,
     }, {
       name: 'vue-sidebar',
       display: 'Sidebar',
-      tailwind: true,
+      color: lightGreen,
+      enable: true,
+    }, {
+      name: 'vue-sidebar-tailwind',
+      display: 'Sidebar + Tailwind',
       color: lightGreen,
       enable: true,
     }, {
       name: 'vue-content',
       display: 'Content Scripts',
-      tailwind: true,
+      color: cyan,
+      enable: true,
+    }, {
+      name: 'vue-content-tailwind',
+      display: 'Content Scripts + Tailwind',
       color: cyan,
       enable: true,
     }],
@@ -143,31 +177,51 @@ export const FRAMEWORKS: Framework[] = [
     uiContexts: [{
       name: 'preact-popup',
       display: 'Popup',
-      tailwind: true,
+      color: blue,
+      enable: true,
+    }, {
+      name: 'preact-popup-tailwind',
+      display: 'Popup + Tailwind',
       color: blue,
       enable: true,
     }, {
       name: 'preact-newtab',
       display: 'Newtab',
-      tailwind: true,
+      color: yellow,
+      enable: true,
+    }, {
+      name: 'preact-newtab-tailwind',
+      display: 'Newtab + Tailwind',
       color: yellow,
       enable: true,
     }, {
       name: 'preact-devtools',
       display: 'Devtools',
-      tailwind: true,
+      color: green,
+      enable: true,
+    }, {
+      name: 'preact-devtools-tailwind',
+      display: 'Devtools + Tailwind',
       color: green,
       enable: true,
     }, {
       name: 'preact-sidebar',
       display: 'Sidebar',
-      tailwind: true,
+      color: lightGreen,
+      enable: true,
+    }, {
+      name: 'preact-sidebar-tailwind',
+      display: 'Sidebar + Tailwind',
       color: lightGreen,
       enable: true,
     }, {
       name: 'preact-content',
       display: 'Content Scripts',
-      tailwind: true,
+      color: cyan,
+      enable: true,
+    }, {
+      name: 'preact-content-tailwind',
+      display: 'Content Scripts + Tailwind',
       color: cyan,
       enable: true,
     }],
@@ -176,6 +230,6 @@ export const FRAMEWORKS: Framework[] = [
 
 export const TEMPLATES = FRAMEWORKS.filter(v => v.enable).flatMap((framework) => {
   return framework.uiContexts.filter(v => v.enable).flatMap((uiContext) => {
-    return uiContext.tailwind ? [uiContext.name, `${uiContext.name}-tailwind`] : uiContext.name
+    return uiContext.name
   })
 })

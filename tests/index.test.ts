@@ -1,9 +1,7 @@
-import { join } from 'node:path'
-import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { getProjectName } from '../src/helpers/getProjectName'
-import { CWD, FRAMEWORKS } from '../src/helpers/constants'
-import { getTemplateName, hasTailwind, uiContexts } from '../src/helpers/getTemplateName'
+import { FRAMEWORKS } from '../src/helpers/constants'
+import { getTemplateName, uiContexts } from '../src/helpers/getTemplateName'
 
 describe('helpers', () => {
   it('the current directory is the project name:', () => {
@@ -38,17 +36,17 @@ describe('helpers', () => {
     expect(result).toEqual(
       [
         'react-popup',
+        'react-popup-tailwind',
         'react-newtab',
+        'react-newtab-tailwind',
         'react-devtools',
+        'react-devtools-tailwind',
         'react-sidebar',
+        'react-sidebar-tailwind',
         'react-content',
+        'react-content-tailwind',
       ],
     )
-  })
-
-  it('hasTailwind', () => {
-    const result = hasTailwind('react', 'content')
-    expect(result).toEqual(true)
   })
 
   it('getTemplateName 1', () => {

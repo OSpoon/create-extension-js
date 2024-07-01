@@ -8,9 +8,9 @@ import { isEmpty } from '../helpers/isEmpty'
 import { isValidPackageName } from '../helpers/isValidPackageName'
 import { getProjectName } from '../helpers/getProjectName'
 import { toValidPackageName } from '../helpers/toValidPackageName'
-import type { Framework, UIContext } from '../types'
+import type { Framework } from '../types'
 
-type Answers = prompts.Answers<'projectName' | 'overwrite' | 'packageName' | 'framework' | 'uiContext' | 'tailwind' | 'targetDir' >
+type Answers = prompts.Answers<'projectName' | 'overwrite' | 'packageName' | 'framework' | 'uiContext' | 'targetDir' >
 export default async function runInteractiveMode(
   argTargetDir: string | undefined,
   argTemplate: string | undefined,
@@ -111,14 +111,6 @@ export default async function runInteractiveMode(
             }
           })
         },
-      },
-      {
-        type: (ui: UIContext) => ui && ui.tailwind ? 'toggle' : null,
-        name: 'tailwind',
-        message: 'Enable TailwindCSS?',
-        initial: true,
-        active: 'yes',
-        inactive: 'no',
       },
     ],
     {
