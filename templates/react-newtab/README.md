@@ -1,4 +1,4 @@
-# react-newtab
+# [projectName]
 
 > This project was bootstrapped using the Extension.js TypeScript template.
 
@@ -6,30 +6,30 @@
 
 In the project directory, you can run:
 
-### npm dev
+### [projectPackageManager] dev
 
 ```
 // Runs the app in the development mode.
 // Will open a new browser instance with your extension loaded.
 // The page will reload when you make changes.
-npm dev
+[projectPackageManager] dev
 ```
 
-### npm start
+### [projectPackageManager] start
 
 ```
 // Runs the app in the production mode.
 // Will open a new browser instance with your extension loaded.
 // This is how your browser extension will work once published.
-npm start
+[projectPackageManager] start
 ```
 
-### npm build
+### [projectPackageManager] build
 
 ```
 // Builds the app for production.
 // Bundles your browser extension in production mode for the target browser.
-npm run build
+[projectPackageManager] run build
 ```
 
 ## Learn More
