@@ -37,16 +37,6 @@ You can also directly specify the project name and the template you want to use 
 npm create extension-js@latest my-react-ext -- --template react-newtab-tailwind
 
 npm create extension-js@latest my-react-ext -- --template react,newtab,tailwind
-
-# yarn
-yarn create extension-js@latest my-react-ext --template react-newtab-tailwind
-
-yarn create extension-js@latest my-react-ext --template react,newtab,tailwind
-
-# pnpm
-pnpm create extension-js@latest my-react-ext --template react-newtab-tailwind
-
-pnpm create extension-js@latest my-react-ext --template react,newtab,tailwind
 ```
 
 Currently supported template presets include:

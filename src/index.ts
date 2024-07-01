@@ -43,10 +43,10 @@ async function init() {
   try {
     const result = await runInteractiveMode(argTargetDir, argTemplate, argv.overwrite)
     // user choice associated with prompts
-    const { targetDir, overwrite, packageName, uiContext, tailwind } = result
+    const { targetDir, overwrite, packageName, uiContext } = result
 
     // determine template
-    const template: string = tailwind ? `${uiContext?.name}-tailwind` : uiContext?.name || argTemplate
+    const template: string = uiContext?.name || argTemplate
 
     const root = path.join(CWD, targetDir)
     // Initializes the project path to prevent the folder from not existing

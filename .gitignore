@@ -10,3 +10,8 @@ logs
 node_modules
 temp
 my-extension-project
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+screenshot.png
