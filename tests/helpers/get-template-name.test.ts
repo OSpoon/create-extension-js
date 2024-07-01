@@ -7,28 +7,28 @@ describe('helpers', () => {
     expect(result).toEqual('init')
   })
 
-  it('should return valid name when the popup name is provided: ', () => {
-    const result = getTemplateName('popup')
-    expect(result).toEqual('popup')
+  it('should return valid name when the newtab name is provided: ', () => {
+    const result = getTemplateName('newtab')
+    expect(result).toEqual('newtab')
   })
 
-  it('should return valid name when the vue-devtools-tailwind name is provided: ', () => {
-    const result = getTemplateName('vue-devtools-tailwind')
-    expect(result).toEqual('vue-devtools-tailwind')
+  it('should return valid name when the react-content-tailwind name is provided: ', () => {
+    const result = getTemplateName('react-content-tailwind')
+    expect(result).toEqual('react-content-tailwind')
   })
 
-  it('should return valid name when the tailwind,devtools,vue name is provided: ', () => {
-    const result = getTemplateName('tailwind,devtools,vue')
-    expect(result).toEqual('vue-devtools-tailwind')
+  it('should return valid name when the tailwind,content,react name is provided: ', () => {
+    const result = getTemplateName('tailwind,content,react')
+    expect(result).toEqual('react-content-tailwind')
   })
 
-  it('should return undefined when the vue-typescript name is provided: ', () => {
-    const result = getTemplateName('vue-typescript')
+  it('should return undefined when the react-typescript name is provided: ', () => {
+    const result = getTemplateName('react-typescript')
     expect(result).toEqual(undefined)
   })
 
-  it('should return undefined when the vue,typescript,tailwind name is provided: ', () => {
-    const result = getTemplateName('vue,typescript,tailwind')
+  it('should return undefined when the react,typescript,tailwind name is provided: ', () => {
+    const result = getTemplateName('react,typescript,tailwind')
     expect(result).toEqual(undefined)
   })
 
