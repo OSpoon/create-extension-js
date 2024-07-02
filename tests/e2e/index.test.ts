@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest'
+import { existsSync } from 'node:fs'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import type { Browser } from 'puppeteer'
 import puppeteer from 'puppeteer'
 
@@ -8,14 +9,6 @@ import puppeteer from 'puppeteer'
 const EXTENSION_PATH = path.resolve(fileURLToPath(import.meta.url), '../../..', 'my-extension-project/dist/chrome')
 
 let browser: Browser | undefined
-
-beforeAll(() => {
-  // createNewExtension()
-})
-
-afterAll(() => {
-  // removeNewExtension()
-})
 
 describe('extension', () => {
   beforeEach(async () => {
@@ -33,7 +26,7 @@ describe('extension', () => {
     browser = undefined
   })
 
-  it('should open new tab: ', async () => {
+  it.skipIf(!existsSync(EXTENSION_PATH))('should open new tab successful: ', async () => {
     const page = await browser?.newPage()
     await page?.goto('chrome://newtab')
     await page?.waitForSelector('h1')

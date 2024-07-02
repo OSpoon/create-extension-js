@@ -41,16 +41,17 @@
     "templates"
   ],
   "scripts": {
-    "build": "unbuild",
     "dev": "unbuild --stub",
+    "start": "esno src/index.ts",
+    "build": "unbuild",
+    "test": "vitest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepare": "simple-git-hooks"
+    "example": "npx esno scripts/createNewExtension.ts"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",

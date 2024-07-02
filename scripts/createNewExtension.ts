@@ -23,19 +23,4 @@ export function createNewExtension(template?: string) {
   }
 }
 
-export function removeNewExtension() {
-  try {
-    const commands = [
-      `npx rimraf ${PROJECT_NAME}`,
-    ]
-    shell.exec(commands.join(' && '), {
-      cwd: process.cwd(),
-      fatal: true,
-    })
-    log('Extension removed successfully.')
-  }
-  catch (error) {
-    console.error('Error executing command:', error)
-    process.exit(1)
-  }
-}
+createNewExtension()
