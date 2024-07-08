@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "vitest.explorer",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "cezaraugusto.vscode-chrome-extesion-manifest-json-schema"
   ]
 }
